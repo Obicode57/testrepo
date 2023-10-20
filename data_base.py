@@ -103,10 +103,10 @@ app = Flask(__name__)
 
 # Configure MySQL connection
 db = mysql.connector.connect(
-    host='localhost',
-    user='root',
-    password='Obinna_A1',
-    database='mydatabase2'
+    host='den1.mysql2.gear.host',
+    user='sasforschool',
+    password='Wj0iG~t-zyJh',
+    database='sasforschool'
 )
 
 # Sample data for polling unit IDs
