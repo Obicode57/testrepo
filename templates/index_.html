@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <h1>Home Page</h1>
+
+    <h2>Polling Unit IDs</h2>
+    <ul>
+        {% for id in polling_unit_ids %}
+            <li><a href="{{ url_for('display_polling_unit_results', polling_unit_id=id) }}">Polling Unit {{ id }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <h2>LGA Names</h2>
+    <ul>
+        {% for lga_name in lga_names %}
+            <li><a href="{{ url_for('party_scores_per_polling_unit') }}?lga_name={{ lga_name }}">{{ lga_name }} Party Scores</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

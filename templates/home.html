@@ -1,0 +1,47 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Polling Units</title>
+</head>
+<body>
+    <h1>Polling Units</h1>
+    <ul>
+        {% for polling_unit_id in polling_unit_ids %}
+            <li><a href="/display_results/{{ polling_unit_id }}">Polling Unit {{ polling_unit_id }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Polling Units</title>
+
+</head>
+<body>
+    <h1>Polling Units</h1>
+    <ul>
+        {% for polling_unit_id in polling_unit_ids %}
+            <li><a href="/display_results/{{ polling_unit_id }}">Polling Unit {{ polling_unit_id }}</a></li>
+        {% endfor %}
+    </ul>
+    <h2>LGA Names</h2>
+    <style>
+        /* CSS to highlight the row */
+        .highlighted-row {
+            background-color: #f0f8ff; /* Adjust the background color as needed */
+        }
+    </style>
+    <ul>
+        {% for lga_name in lga_names %}
+        
+                        <li><a href="/party_scores_per_polling_unit_by_lga/<string:lga_name>" onclick="highlightRow('{{ lga_name }}')"> {{ lga_name }} Party Scores</a></li>
+
+        {% endfor %}
+    </ul>
+<h2>Submit Polling Unit Results</h2>
+    <ul>
+        <li><a href="/polling_unit_form">Submit Results</a></li>
+    </ul>
+ </body>
+ </html>

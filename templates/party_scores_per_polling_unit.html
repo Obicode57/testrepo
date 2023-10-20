@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Total Party Scores per Polling Unit and LGA</title>
+    <style>
+        /* CSS to highlight the rows */
+        .highlighted-row {
+            background-color: #f0f8ff; /* Adjust the background color as needed */
+        }
+    </style>
+</head>
+<body>
+    <h1>Total Party Scores per Polling Unit and LGA</h1>
+    <table border="1">
+        <tr>
+            <th>LGA Name</th>
+            <th>Polling Unit UniqueID</th>
+            <th>Total PDP Score</th>
+            <th>Total DPP Score</th>
+            <th>Total ACN Score</th>
+            <th>Total PPA Score</th>
+            <th>Total CDC Score</th>
+            <th>Total JP Score</th>
+            <th>Total ANPP Score</th>
+            <th>Total LABOUR Score</th>
+            <th>Total CPP Score</th>
+            <!-- Add other party columns as needed -->
+        </tr>
+         {% for lga_name, polling_units in total_party_scores_per_polling_unit.items() %}
+            {% if lga_name == selected_lga %}
+                {% for polling_unit_uniqueid, party_scores in polling_units.items() %}
+                    <tr id="{{ lga_name }}">
+                    <td>{{ lga_name }}</td>
+                    <td>{{ polling_unit_uniqueid }}</td>
+                    <td>{{ party_scores['PDP'] if 'PDP' in party_scores else 0 }}</td>
+                    <td>{{ party_scores['DPP'] if 'DPP' in party_scores else 0 }}</td>
+                    <td>{{ party_scores['ACN'] if 'ACN' in party_scores else 0 }}</td>
+                    <td>{{ party_scores['PPA'] if 'PPA' in party_scores else 0 }}</td>
+                    <td>{{ party_scores['CDC'] if 'CDC' in party_scores else 0 }}</td>
+                    <td>{{ party_scores['JP'] if 'JP' in party_scores else 0 }}</td>
+                    <td>{{ party_scores['ANPP'] if 'ANPP' in party_scores else 0 }}</td>
+                    <td>{{ party_scores['LABOUR'] if 'LABOUR' in party_scores else 0 }}</td>
+                    <td>{{ party_scores['CPP'] if 'CPP' in party_scores else 0 }}</td>
+                    <!-- Add other party columns as needed -->
+                </tr>
+            {% endfor %}
+        {% else %}
+          {% for polling_unit_uniqueid, party_scores in polling_units.items() %}
+                 <tr>
+                   <td>{{ lga_name }}</td>
+                    <td>{{ polling_unit_uniqueid }}</td>
+                    <td>{{ party_scores['PDP'] if 'PDP' in party_scores else 0 }}</td>
+                    <td>{{ party_scores['DPP'] if 'DPP' in party_scores else 0 }}</td>
+                    <td>{{ party_scores['ACN'] if 'ACN' in party_scores else 0 }}</td>
+                    <td>{{ party_scores['PPA'] if 'PPA' in party_scores else 0 }}</td>
+                    <td>{{ party_scores['CDC'] if 'CDC' in party_scores else 0 }}</td>
+                    <td>{{ party_scores['JP'] if 'JP' in party_scores else 0 }}</td>
+                    <td>{{ party_scores['ANPP'] if 'ANPP' in party_scores else 0 }}</td>
+                    <td>{{ party_scores['LABOUR'] if 'LABOUR' in party_scores else 0 }}</td>
+                    <td>{{ party_scores['CPP'] if 'CPP' in party_scores else 0 }}</td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    </table>
+
+

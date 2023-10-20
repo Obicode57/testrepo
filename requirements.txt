@@ -1,0 +1,5 @@
+Flask
+json5
+request3
+mysql-connector
+gunicorn
